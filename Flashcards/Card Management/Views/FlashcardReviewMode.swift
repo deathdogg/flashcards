@@ -6,12 +6,26 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct FlashcardReviewMode: View {
+	@FocusState var reviewFocused
 	@State var set: CardSet
+	@State workingSet: CardSet?
 	@State var currentCard = 0
 	@Binding var path: NavigationPath
 	@State private var showAnswer = false
+	var drag: some Gesture {
+		DragGesture(minimumDistance: 50.0)
+
+			.onChanged {
+				g in
+				if g.translation.width > 0 {
+					nextCard()
+				} else if g.translation.width < 0 {
+					previousCard()
+				}
+			}
+	}
 	var body: some View {
 		VStack {
 			if set.cards.count > 0 {
@@ -28,30 +42,52 @@ struct FlashcardReviewMode: View {
 				}
 			}
 		}
+		.focusable(true)
+		.focused($reviewFocused)
+		.onAppear {
+			reviewFocused = true
+		}
+		.gesture(drag)
+		.onKeyPress(.leftArrow) {
+			previousCard()
+				return .handled
+		}
+		.onKeyPress(.rightArrow) {
+			nextCard()
+				return .handled
+		}
 		.toolbar {
 			ToolbarItem(placement: .bottomBar) {
 				Button("Previous") {
-					if set.cards.count > 0 && currentCard > 0 {
-						currentCard -= 1
-					}
+					previousCard()
 				}
 			}
 			ToolbarItem(placement: .bottomBar) {
 				Button("Shuffle") {
 					if set.cards.count > 0 {
-						set.cards.shuffle()
+						let newSet = set.cards.shuffled()
+						set.cards = newSet
 					}
 				}
+				.disabled(true)
 			}
 			ToolbarItem(placement: .bottomBar) {
 				Button("Next"){
-					if set.cards.count > 0 && currentCard < set.cards.count-1 {
-						currentCard += 1
-					}
+					nextCard()
 				}
 			}
 		}
 		.navigationTitle("Card Review")
+	}
+	func nextCard() {
+		if set.cards.count > 0 && currentCard < set.cards.count-1 {
+			currentCard += 1
+		}
+	}
+	func previousCard() {
+		if set.cards.count > 0 && currentCard > 0 {
+			currentCard -= 1
+		}
 	}
 }
 
