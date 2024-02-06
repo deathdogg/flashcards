@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		C59C6A512B71BDDE006409FA /* AddACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddACard.swift; sourceTree = "<group>"; };
 		C59C6A532B71C730006409FA /* FlashcardReviewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardReviewMode.swift; sourceTree = "<group>"; };
-		C5B09ADE2B669F3200C3AEE4 /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5B09ADE2B669F3200C3AEE4 /* Cardio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B09AE12B669F3200C3AEE4 /* FlashcardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsApp.swift; sourceTree = "<group>"; };
 		C5B09AE32B669F3200C3AEE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C5B09AE52B669F3200C3AEE4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		C5B09ADF2B669F3200C3AEE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C5B09ADE2B669F3200C3AEE4 /* Flashcards.app */,
+				C5B09ADE2B669F3200C3AEE4 /* Cardio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,9 +107,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C5B09ADD2B669F3200C3AEE4 /* Flashcards */ = {
+		C5B09ADD2B669F3200C3AEE4 /* Cardio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5B09AEE2B669F3400C3AEE4 /* Build configuration list for PBXNativeTarget "Flashcards" */;
+			buildConfigurationList = C5B09AEE2B669F3400C3AEE4 /* Build configuration list for PBXNativeTarget "Cardio" */;
 			buildPhases = (
 				C5B09ADA2B669F3200C3AEE4 /* Sources */,
 				C5B09ADB2B669F3200C3AEE4 /* Frameworks */,
@@ -119,9 +119,9 @@
 			);
 			dependencies = (
 			);
-			name = Flashcards;
+			name = Cardio;
 			productName = Flashcards;
-			productReference = C5B09ADE2B669F3200C3AEE4 /* Flashcards.app */;
+			productReference = C5B09ADE2B669F3200C3AEE4 /* Cardio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +139,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C5B09AD92B669F3200C3AEE4 /* Build configuration list for PBXProject "Flashcards" */;
+			buildConfigurationList = C5B09AD92B669F3200C3AEE4 /* Build configuration list for PBXProject "Cardio" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -152,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C5B09ADD2B669F3200C3AEE4 /* Flashcards */,
+				C5B09ADD2B669F3200C3AEE4 /* Cardio */,
 			);
 		};
 /* End PBXProject section */
@@ -373,7 +373,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C5B09AD92B669F3200C3AEE4 /* Build configuration list for PBXProject "Flashcards" */ = {
+		C5B09AD92B669F3200C3AEE4 /* Build configuration list for PBXProject "Cardio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5B09AEC2B669F3400C3AEE4 /* Debug */,
@@ -382,7 +382,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5B09AEE2B669F3400C3AEE4 /* Build configuration list for PBXNativeTarget "Flashcards" */ = {
+		C5B09AEE2B669F3400C3AEE4 /* Build configuration list for PBXNativeTarget "Cardio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5B09AEF2B669F3400C3AEE4 /* Debug */,
