@@ -10,7 +10,7 @@ import SwiftData
 struct FlashcardReviewMode: View {
 	@FocusState var reviewFocused
 	@State var set: CardSet
-	@State workingSet: CardSet?
+	@State var workingSet: [Card]?
 	@State var currentCard = 0
 	@Binding var path: NavigationPath
 	@State private var showAnswer = false
@@ -30,12 +30,12 @@ struct FlashcardReviewMode: View {
 		VStack {
 			if set.cards.count > 0 {
 				if !showAnswer {
-					Text("question: \(set.cards[currentCard].question)")
+					Text("question: \(workingSet?[currentCard].question ?? set.cards[currentCard].question)")
 						.onTapGesture {
 							showAnswer = true
 						}
 				} else {
-					Text("Answer: \(set.cards[currentCard].answer)")
+					Text("Answer: \(workingSet?[currentCard].answer ?? set.cards[currentCard].answer)")
 						.onTapGesture {
 							showAnswer = false
 						}
@@ -65,11 +65,10 @@ struct FlashcardReviewMode: View {
 			ToolbarItem(placement: .bottomBar) {
 				Button("Shuffle") {
 					if set.cards.count > 0 {
-						let newSet = set.cards.shuffled()
-						set.cards = newSet
+						workingSet = set.cards.shuffled()
 					}
 				}
-				.disabled(true)
+//				.disabled(true)
 			}
 			ToolbarItem(placement: .bottomBar) {
 				Button("Next"){
