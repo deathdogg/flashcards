@@ -10,10 +10,11 @@ import SwiftData
 @Model
 final class CardSet {
 	var title: String
-	
+
 	var cards: [Card]
 	init(cards: [Card], title: String) {
 		self.title = title
+
 		self.cards = cards
 	}
 }

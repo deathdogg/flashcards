@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 @Model
-@Relationship(deleteRule: .cascade, inverse: \CardSet.cards)
 final class Card {
 	var question: String
 	var answer: String

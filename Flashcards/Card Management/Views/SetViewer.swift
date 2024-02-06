@@ -14,8 +14,12 @@ struct SetViewer: View {
 	@State var setToView: CardSet
 	var body: some View {
 		VStack {
-			List(setToView.cards) {
-				Text($0.question)
+			List(Array(setToView.cards.enumerated()), id: \.offset) {
+				c in
+				Text(c.1.question)
+					.accessibilityAction(named: "Delete") {
+						setToView.cards.remove(at: c.offset)
+					}
 			}
 		}
 		.sheet(isPresented: $showAddCard) {
