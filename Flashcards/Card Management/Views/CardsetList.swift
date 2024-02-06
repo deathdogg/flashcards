@@ -11,6 +11,7 @@ import SwiftUI
 struct CardsetList: View {
 	@Environment(\.modelContext) private var moc
 	@State var showAddSet = false
+	@State var showEditSet = false
 	@Binding var path: NavigationPath
 	@Query private var sets: [CardSet]
 	@State var title = ""
@@ -19,12 +20,20 @@ struct CardsetList: View {
 			List(sets) {
 				set in
 				NavigationLink(set.title, value: set)
+					.sheet(isPresented: $showEditSet) {
+EditCardSet(set: set, showSheet: $showEditSet)
+					}
 					.accessibilityAction(named: "delete") {
 						moc.delete(set)
+					}
+					.accessibilityAction(named: "Rename") {
+						showEditSet = true
 					}
 
 			}
 		}
+
+
 		.navigationDestination(for: CardSet.self) {
 			s in
 			SetViewer(path: $path, setToView: s)
