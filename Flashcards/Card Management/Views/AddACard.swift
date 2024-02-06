@@ -18,7 +18,7 @@ struct AddACard: View {
 			TextField("Question", text: $question)
 			TextField("Answer", text: $answer)
 			Button("Save") {
-				let newCard = Card(question: question, answer: answer)
+				let newCard = Card(question: question, answer: answer, set: set)
 				set.cards.append(newCard)
 				do {
 					try moc.save()

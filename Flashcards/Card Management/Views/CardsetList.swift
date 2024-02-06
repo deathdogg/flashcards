@@ -16,12 +16,15 @@ struct CardsetList: View {
 	@Query private var sets: [CardSet]
 	@State var title = ""
 	var body: some View {
-		VStack {
+		VStack(alignment: .center) {
 			List(sets) {
 				set in
-				NavigationLink(set.title, value: set)
+				NavigationLink(value: set) {
+					Text(set.title)
+						.font(.title)
+				}
 					.sheet(isPresented: $showEditSet) {
-EditCardSet(set: set, showSheet: $showEditSet)
+						EditCardSet(set: set, showSheet: $showEditSet)
 					}
 					.accessibilityAction(named: "delete") {
 						moc.delete(set)
@@ -33,13 +36,12 @@ EditCardSet(set: set, showSheet: $showEditSet)
 			}
 		}
 
-
 		.navigationDestination(for: CardSet.self) {
 			s in
 			SetViewer(path: $path, setToView: s)
 		}
 		.toolbar {
-			ToolbarItem(placement: .topBarTrailing) {
+			ToolbarItem(placement: .primaryAction) {
 				Button("Add Card Set") {
 					showAddSet.toggle()
 				}
@@ -59,7 +61,6 @@ EditCardSet(set: set, showSheet: $showEditSet)
 			}
 		}
 	}
-
 
 }
 

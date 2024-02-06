@@ -51,6 +51,7 @@ struct FlashcardReviewMode: View {
 				}
 			}
 		}
+		.navigationTitle("Card Review")
 	}
 }
 

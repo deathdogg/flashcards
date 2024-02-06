@@ -12,8 +12,10 @@ import SwiftData
 final class Card {
 	var question: String
 	var answer: String
-	init(question: String, answer: String) {
+	var set: CardSet?
+	init(question: String, answer: String, set: CardSet) {
 		self.question = question
 		self.answer = answer
+		self.set = set
 	}
 }

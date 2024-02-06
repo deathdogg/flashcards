@@ -11,9 +11,13 @@ struct CreateCardSet: View {
 	@Environment(\.modelContext) private var moc
 	@State var newSet = CardSet(cards: [], title: "")
 	var body: some View {
-		TextField("enter Title", text: $newSet.title)
-		Button("Save") {
-			moc.insert(newSet)
+		VStack {
+			Button("Save") {
+				moc.insert(newSet)
+			}
+			.frame(alignment: .topTrailing)
+			TextField("enter Title", text: $newSet.title)
+				.textFieldStyle(.plain)
 		}
 	}
 }

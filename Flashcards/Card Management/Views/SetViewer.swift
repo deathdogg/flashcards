@@ -14,11 +14,12 @@ struct SetViewer: View {
 	@State var setToView: CardSet
 	@State private var showEditCard = false
 	var body: some View {
-		VStack {
+		VStack(alignment: .center) {
 			List {
 				ForEach(Array(setToView.cards.enumerated()), id: \.offset) {
 					c in
 					Text(c.1.question)
+						.font(.title)
 						.sheet(isPresented: $showEditCard) {
 							EditCard(card: c.1, showSheet: $showEditCard)
 						}
@@ -30,12 +31,13 @@ struct SetViewer: View {
 						}
 				}
 			}
+			.listRowSpacing(10.0)
 		}
 		.sheet(isPresented: $showAddCard) {
 			AddACard(showSheet: $showAddCard, set: $setToView)
 		}
 		.toolbar {
-			ToolbarItem(placement: .topBarTrailing) {
+			ToolbarItem(placement: .primaryAction) {
 				Button("Add") {
 					showAddCard.toggle()
 				}
@@ -46,7 +48,6 @@ struct SetViewer: View {
 				}
 			}
 		}
-
-
+		.navigationTitle(setToView.title)
 	}
 }
