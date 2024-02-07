@@ -14,6 +14,7 @@ struct FlashcardReviewMode: View {
 	@State var currentCard = 0
 	@Binding var path: NavigationPath
 	@State private var showAnswer = false
+	@AccessibilityFocusState private var focusedOnQuestion
 	var drag: some Gesture {
 		DragGesture(minimumDistance: 50.0)
 
@@ -29,16 +30,25 @@ struct FlashcardReviewMode: View {
 	var body: some View {
 		VStack {
 			if set.cards.count > 0 {
-				if !showAnswer {
-					Text("question: \(workingSet?[currentCard].question ?? set.cards[currentCard].question)")
-						.onTapGesture {
-							showAnswer = true
-						}
-				} else {
-					Text("Answer: \(workingSet?[currentCard].answer ?? set.cards[currentCard].answer)")
-						.onTapGesture {
-							showAnswer = false
-						}
+				Group {
+					if !showAnswer {
+						Text("question: \(workingSet?[currentCard].question ?? set.cards[currentCard].question)")
+							.accessibilityAddTraits(.isButton)
+							.onTapGesture {
+								showAnswer = true
+							}
+					} else {
+						Text("Answer: \(workingSet?[currentCard].answer ?? set.cards[currentCard].answer)")
+							.accessibilityAddTraits(.isButton)
+							.onTapGesture {
+								showAnswer = false
+							}
+					}
+				}
+
+				.accessibilityFocused($focusedOnQuestion)
+				.onAppear {
+					focusedOnQuestion = true
 				}
 			}
 		}
@@ -48,6 +58,18 @@ struct FlashcardReviewMode: View {
 			reviewFocused = true
 		}
 		.gesture(drag)
+		.accessibilityScrollAction {
+			edge in
+			switch edge {
+			case .trailing:
+				previousCard()
+			case .leading:
+				nextCard()
+			default:
+				return
+			}
+
+		}
 		.onKeyPress(.leftArrow) {
 			previousCard()
 				return .handled
@@ -81,11 +103,19 @@ struct FlashcardReviewMode: View {
 	func nextCard() {
 		if set.cards.count > 0 && currentCard < set.cards.count-1 {
 			currentCard += 1
+			UIAccessibility.post(notification: .pageScrolled, argument: "Next card")
+			focusedOnQuestion = true
+			showAnswer = false
+			UIAccessibility.post(notification: .layoutChanged, argument: nil)
 		}
 	}
 	func previousCard() {
 		if set.cards.count > 0 && currentCard > 0 {
 			currentCard -= 1
+			UIAccessibility.post(notification: .pageScrolled, argument: "Previous Card")
+			focusedOnQuestion = true
+			showAnswer = false
+			UIAccessibility.post(notification: .layoutChanged, argument: nil)
 		}
 	}
 }
