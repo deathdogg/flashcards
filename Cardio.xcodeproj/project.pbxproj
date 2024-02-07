@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C523847B2B7432E800E4EDBD /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = C523847A2B7432E800E4EDBD /* 1024.png */; };
 		C59C6A522B71BDDE006409FA /* AddACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59C6A512B71BDDE006409FA /* AddACard.swift */; };
 		C59C6A542B71C730006409FA /* FlashcardReviewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59C6A532B71C730006409FA /* FlashcardReviewMode.swift */; };
 		C59C6A562B7295D0006409FA /* EditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59C6A552B7295D0006409FA /* EditCard.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C523847A2B7432E800E4EDBD /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		C59C6A512B71BDDE006409FA /* AddACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddACard.swift; sourceTree = "<group>"; };
 		C59C6A532B71C730006409FA /* FlashcardReviewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardReviewMode.swift; sourceTree = "<group>"; };
 		C59C6A552B7295D0006409FA /* EditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCard.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		C5B09AE02B669F3200C3AEE4 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				C523847A2B7432E800E4EDBD /* 1024.png */,
 				C5B09AE12B669F3200C3AEE4 /* FlashcardsApp.swift */,
 				C5B09AE32B669F3200C3AEE4 /* ContentView.swift */,
 				C5B09AF22B66A10600C3AEE4 /* CardSet.swift */,
@@ -168,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C523847B2B7432E800E4EDBD /* 1024.png in Resources */,
 				C5B09AEB2B669F3400C3AEE4 /* Preview Assets.xcassets in Resources */,
 				C5B09AE82B669F3400C3AEE4 /* Assets.xcassets in Resources */,
 			);
