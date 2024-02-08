@@ -16,7 +16,8 @@ struct AddACard: View {
 	var body: some View {
 		VStack {
 			TextField("Question", text: $question)
-			TextField("Answer", text: $answer)
+			TextEditor(text: $answer)
+//			TextField("Answer", text: $answer)
 			Button("Save") {
 				let newCard = Card(question: question, answer: answer, set: set)
 				set.cards.append(newCard)

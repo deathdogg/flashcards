@@ -4,10 +4,11 @@
 //
 //  Created by Ricardo Herrera on 2/5/24.
 //
-
+import AVFoundation
 import SwiftUI
 import SwiftData
 struct FlashcardReviewMode: View {
+	@State private var player: AVAudioPlayer?
 	@FocusState var reviewFocused
 	@State var set: CardSet
 	@State var workingSet: [Card]?
@@ -39,6 +40,8 @@ struct FlashcardReviewMode: View {
 							}
 					} else {
 						Text("Answer: \(workingSet?[currentCard].answer ?? set.cards[currentCard].answer)")
+						//TODO: Work on allowing multi-line answers to be viewable line by line with simple swiping actions with voiceover
+							.accessibilityTextContentType(.plain)
 							.accessibilityAddTraits(.isButton)
 							.onTapGesture {
 								showAnswer = false
@@ -72,11 +75,11 @@ struct FlashcardReviewMode: View {
 		}
 		.onKeyPress(.leftArrow) {
 			previousCard()
-				return .handled
+			return .handled
 		}
 		.onKeyPress(.rightArrow) {
 			nextCard()
-				return .handled
+			return .handled
 		}
 		.toolbar {
 			ToolbarItem(placement: .bottomBar) {
@@ -90,7 +93,6 @@ struct FlashcardReviewMode: View {
 						workingSet = set.cards.shuffled()
 					}
 				}
-//				.disabled(true)
 			}
 			ToolbarItem(placement: .bottomBar) {
 				Button("Next"){
@@ -107,6 +109,14 @@ struct FlashcardReviewMode: View {
 			focusedOnQuestion = true
 			showAnswer = false
 			UIAccessibility.post(notification: .layoutChanged, argument: nil)
+			if player == nil || player!.isPlaying {
+				let url: URL! = Bundle.main.url(forResource: "take_card", withExtension: "mp3")
+				let player = try! AVAudioPlayer(contentsOf: url)
+				self.player = player
+				self.player?.play()
+			} else {
+				player?.play()
+			}
 		}
 	}
 	func previousCard() {
@@ -116,6 +126,14 @@ struct FlashcardReviewMode: View {
 			focusedOnQuestion = true
 			showAnswer = false
 			UIAccessibility.post(notification: .layoutChanged, argument: nil)
+			if player == nil || player!.isPlaying {
+				let url: URL! = Bundle.main.url(forResource: "take_card", withExtension: "mp3")
+				let player = try! AVAudioPlayer(contentsOf: url)
+				self.player = player
+				self.player?.play()
+			} else {
+				self.player?.play()
+			}
 		}
 	}
 }

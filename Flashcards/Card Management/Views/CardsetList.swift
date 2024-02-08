@@ -32,7 +32,6 @@ struct CardsetList: View {
 					.accessibilityAction(named: "Rename") {
 						showEditSet = true
 					}
-
 			}
 		}
 
@@ -60,6 +59,7 @@ struct CardsetList: View {
 				}
 			}
 		}
+		.navigationTitle("Cardio")
 	}
 
 }

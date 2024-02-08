@@ -12,6 +12,7 @@
 		C59C6A542B71C730006409FA /* FlashcardReviewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59C6A532B71C730006409FA /* FlashcardReviewMode.swift */; };
 		C59C6A562B7295D0006409FA /* EditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59C6A552B7295D0006409FA /* EditCard.swift */; };
 		C59C6A582B729965006409FA /* EditCardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59C6A572B729965006409FA /* EditCardSet.swift */; };
+		C5A9A4C22B746CF70053ACC3 /* take_card.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5A9A4C12B746CF70053ACC3 /* take_card.mp3 */; };
 		C5B09AE22B669F3200C3AEE4 /* FlashcardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B09AE12B669F3200C3AEE4 /* FlashcardsApp.swift */; };
 		C5B09AE42B669F3200C3AEE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B09AE32B669F3200C3AEE4 /* ContentView.swift */; };
 		C5B09AE62B669F3200C3AEE4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B09AE52B669F3200C3AEE4 /* Card.swift */; };
@@ -29,6 +30,7 @@
 		C59C6A532B71C730006409FA /* FlashcardReviewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardReviewMode.swift; sourceTree = "<group>"; };
 		C59C6A552B7295D0006409FA /* EditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCard.swift; sourceTree = "<group>"; };
 		C59C6A572B729965006409FA /* EditCardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardSet.swift; sourceTree = "<group>"; };
+		C5A9A4C12B746CF70053ACC3 /* take_card.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = take_card.mp3; sourceTree = "<group>"; };
 		C5B09ADE2B669F3200C3AEE4 /* Cardio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B09AE12B669F3200C3AEE4 /* FlashcardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsApp.swift; sourceTree = "<group>"; };
 		C5B09AE32B669F3200C3AEE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		C5B09AE02B669F3200C3AEE4 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				C5A9A4C12B746CF70053ACC3 /* take_card.mp3 */,
 				C523847A2B7432E800E4EDBD /* 1024.png */,
 				C5B09AE12B669F3200C3AEE4 /* FlashcardsApp.swift */,
 				C5B09AE32B669F3200C3AEE4 /* ContentView.swift */,
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C523847B2B7432E800E4EDBD /* 1024.png in Resources */,
+				C5A9A4C22B746CF70053ACC3 /* take_card.mp3 in Resources */,
 				C5B09AEB2B669F3400C3AEE4 /* Preview Assets.xcassets in Resources */,
 				C5B09AE82B669F3400C3AEE4 /* Assets.xcassets in Resources */,
 			);
